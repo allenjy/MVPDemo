@@ -29,9 +29,9 @@ public class MainPresenterImp implements BasePresenter {
     }
 
     public void init() {
+        compositeDisposable = new CompositeDisposable();
         pageIndex = 1;
         requestNews(pageIndex);
-        compositeDisposable = new CompositeDisposable();
     }
 
     public void lastPage() {
@@ -90,6 +90,7 @@ public class MainPresenterImp implements BasePresenter {
     @Override
     public void recycle() {
         this.compositeDisposable.clear();
+        this.compositeDisposable = null;
         this.mView = null;
         this.mDao = null;
     }
